@@ -8,7 +8,7 @@ using System.Linq;
 namespace SeleniumWebDriver.MultiSelectListDemoTest
 {
     [TestFixture]
-    public class WebDriverTests
+    public class Tests
     {
         const string MuslitSelectWindowXPath = "//*[@id='multi-select']";
         const string URL = "https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html";

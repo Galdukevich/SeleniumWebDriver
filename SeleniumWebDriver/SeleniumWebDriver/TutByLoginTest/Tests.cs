@@ -6,7 +6,7 @@ using SeleniumWebDriver.TutByLoginTest.Pages;
 namespace SeleniumWebDriver.TutByLoginTest
 {
     [TestFixture]
-    public class WebDriverTests
+    public class Tests
     {
         [TestCase("seleniumtests@tut.by", "123456789zxcvbn", "Selenium Test", "")]
         [TestCase("seleniumtests2@tut.by", "123456789zxcvbn", "Selenium Test", "")]
@@ -27,6 +27,7 @@ namespace SeleniumWebDriver.TutByLoginTest
             //get logged in username
             mainPage.GetUserName(ref loggedInUser);
 
+            //compare usernames
             Assert.AreEqual(username, loggedInUser);
 
             _driver.Close();

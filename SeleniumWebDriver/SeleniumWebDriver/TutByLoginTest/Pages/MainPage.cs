@@ -10,17 +10,19 @@ namespace SeleniumWebDriver.TutByLoginTest.Pages
         private IWebDriver _driver;
         IWebElement _UserNamePanel;
 
+        //move driver to MainPage
         public MainPage(IWebDriver driver)
         {
             _driver = driver;
         }
 
+        //method for finding logged in UserName
         public string GetUserName(ref string username)
         {
-            //explicit waite
-            WebDriverWait wait = new WebDriverWait(_driver, new System.TimeSpan(5000));
-            wait.PollingInterval = new System.TimeSpan(2500);            
-            wait.Until(ExpectedConditions.ElementIsVisible(By.ClassName(_userNamePanelByClass)));
+            //explicit waiter
+            WebDriverWait wait = new WebDriverWait(_driver, System.TimeSpan.FromSeconds(5));
+            wait.PollingInterval = System.TimeSpan.FromSeconds(2.5);
+            wait.Until(x => x.FindElement(By.ClassName(_userNamePanelByClass)));
 
             _UserNamePanel = _driver.FindElement(By.ClassName(_userNamePanelByClass));
             username = _UserNamePanel.Text;
