@@ -22,6 +22,9 @@ namespace SeleniumWebDriver.Pages
             _driver = driver;
             PageFactory.InitElements(_driver, this);
             _driver.Navigate().GoToUrl(URL);
+
+            Screenshot screenshot = ((ITakesScreenshot)_driver).GetScreenshot();
+            screenshot.SaveAsFile(@"D:\Screenshots\SeleniumTestingScreenshot.png", ScreenshotImageFormat.Png);
         }
 
         [FindsBy(How = How.ClassName, Using = _loginPopUpButton)]
