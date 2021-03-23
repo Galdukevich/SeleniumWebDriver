@@ -27,21 +27,16 @@ namespace SeleniumWebDriver.TutByLoginTest.Pages
             _driver.Manage().Timeouts().ImplicitWait = System.TimeSpan.FromSeconds(5);
 
             _driver.Navigate().GoToUrl(URL);
-            Initialize();
-        }
-
-        //initialize WebElements
-        public void Initialize()
-        {
-            _LoginPopUpButton = _driver.FindElement(By.ClassName(_loginPopUpButton));
-            _Login = _driver.FindElement(By.Name(_loginName));
-            _Password = _driver.FindElement(By.Name(_passwordName));
-            _Enter = _driver.FindElement(By.CssSelector(_loginButton));
         }
 
         //Method for Login with user credentials
         public void LogIn(string login, string password)
         {
+            _LoginPopUpButton = _driver.FindElement(By.ClassName(_loginPopUpButton));
+            _Login = _driver.FindElement(By.Name(_loginName));
+            _Password = _driver.FindElement(By.Name(_passwordName));
+            _Enter = _driver.FindElement(By.CssSelector(_loginButton));
+
             _LoginPopUpButton.Click();
             //This is implicit waiter too
             Thread.Sleep(200);

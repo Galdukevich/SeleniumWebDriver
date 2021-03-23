@@ -34,7 +34,7 @@ namespace SeleniumWebDriver.AlertsTest
             alert.Accept();
 
             //verify alert text
-            Assert.AreEqual(_expectedErrorAlertBox, errorText);
+            Assert.AreEqual(_expectedErrorAlertBox, errorText, "Alert text is not correct");
 
             _driver.Close();
         }
@@ -61,8 +61,8 @@ namespace SeleniumWebDriver.AlertsTest
             var result = _ConfirmResultText.Text;
 
             //verify confirm box text
-            Assert.AreEqual(_expectedTextConfirmBox, errorText);
-            Assert.AreEqual(_acceptanceResultConfirmBox, result);
+            Assert.AreEqual(_expectedTextConfirmBox, errorText, "ConfirmBox text is not correct");
+            Assert.AreEqual(_acceptanceResultConfirmBox, result, "ConfirmBox result text is not correct");
 
             _driver.Close();
         }
@@ -89,8 +89,8 @@ namespace SeleniumWebDriver.AlertsTest
             var result = _ConfirmResultText.Text;
 
             //verify confirm box text
-            Assert.AreEqual(_expectedTextConfirmBox, errorText);
-            Assert.AreEqual(_dismissingResultConfirmBox, result);
+            Assert.AreEqual(_expectedTextConfirmBox, errorText, "ConfirmBox text is not correct");
+            Assert.AreEqual(_dismissingResultConfirmBox, result, "ConfirmBox result text is not correct");
 
             _driver.Close();
         }

@@ -34,7 +34,7 @@ namespace SeleniumWebDriver.DynamicDataLoadingTest
             _UserPicXPath = _driver.FindElement(By.XPath(_userPicXPath));
 
             //verify that user picture is displayed
-            Assert.IsTrue(_UserPicXPath.Displayed);
+            Assert.IsTrue(_UserPicXPath.Displayed, "UserPicture is not displayed");
 
             _driver.Close();
         }

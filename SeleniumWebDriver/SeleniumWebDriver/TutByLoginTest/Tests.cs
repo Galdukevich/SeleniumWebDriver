@@ -8,10 +8,10 @@ namespace SeleniumWebDriver.TutByLoginTest
     [TestFixture]
     public class Tests
     {
-        [TestCase("seleniumtests@tut.by", "123456789zxcvbn", "Selenium Test", "")]
-        [TestCase("seleniumtests2@tut.by", "123456789zxcvbn", "Selenium Test", "")]
+        [TestCase("seleniumtests@tut.by", "123456789zxcvbn", "Selenium Test")]
+        [TestCase("seleniumtests2@tut.by", "123456789zxcvbn", "Selenium Test")]
 
-        public void TestMethod(string login, string password, string username, string loggedInUser)
+        public void TestMethod(string login, string password, string username)
         {
             IWebDriver _driver = new FirefoxDriver();
          
@@ -25,10 +25,10 @@ namespace SeleniumWebDriver.TutByLoginTest
             MainPage mainPage = loginPage.OpenMainPage();
 
             //get logged in username
-            mainPage.GetUserName(ref loggedInUser);
+            var loggedInUser = mainPage.GetUserName();
 
             //compare usernames
-            Assert.AreEqual(username, loggedInUser);
+            Assert.AreEqual(username, loggedInUser, "Logged in user name from precondition, is not equal to actually logged in username or user was not logged in.");
 
             _driver.Close();
         }

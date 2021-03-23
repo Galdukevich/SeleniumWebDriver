@@ -17,7 +17,7 @@ namespace SeleniumWebDriver.TutByLoginTest.Pages
         }
 
         //method for finding logged in UserName
-        public string GetUserName(ref string username)
+        public string GetUserName()
         {
             //explicit waiter
             WebDriverWait wait = new WebDriverWait(_driver, System.TimeSpan.FromSeconds(5));
@@ -25,8 +25,7 @@ namespace SeleniumWebDriver.TutByLoginTest.Pages
             wait.Until(x => x.FindElement(By.ClassName(_userNamePanelByClass)));
 
             _UserNamePanel = _driver.FindElement(By.ClassName(_userNamePanelByClass));
-            username = _UserNamePanel.Text;
-            return username;
+            return _UserNamePanel.Text;
         }
     }
 }

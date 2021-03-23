@@ -52,7 +52,7 @@ namespace SeleniumWebDriver.MultiSelectListDemoTest
             var result = selectedList.Select(x => x.ElementName);
 
             //compare elements for selecting and selected elements
-            CollectionAssert.AreEquivalent(result, sendList);
+            CollectionAssert.AreEquivalent(result, sendList, "Selected elements are not equal to precondition");
 
             _driver.Close();
         }
