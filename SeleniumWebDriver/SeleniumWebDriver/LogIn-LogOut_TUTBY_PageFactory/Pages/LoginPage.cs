@@ -1,5 +1,9 @@
 ﻿using System;
+using System.IO;
+using System.Threading;
+using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 
@@ -23,8 +27,9 @@ namespace SeleniumWebDriver.Pages
             PageFactory.InitElements(_driver, this);
             _driver.Navigate().GoToUrl(URL);
 
-            Screenshot screenshot = ((ITakesScreenshot)_driver).GetScreenshot();
-            screenshot.SaveAsFile(@"D:\Screenshots\SeleniumTestingScreenshot.png", ScreenshotImageFormat.Png);
+            Screenshot screenshot2 = _driver.TakeScreenshot();
+            var fileName = $"screenshot123-{DateTime.Now.Ticks}-{Thread.CurrentThread.ManagedThreadId}.png";
+            screenshot2.SaveAsFile(fileName);
         }
 
         [FindsBy(How = How.ClassName, Using = _loginPopUpButton)]
